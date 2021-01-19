@@ -1,0 +1,10 @@
+// initiated the script
+powershell.exe -file .\scripts\powershell\install-bicep.ps1
+
+
+// build ARM template from bicep
+bicep build main.bicep
+
+
+// deploy .json to azure
+az deployment group create -f .\sandbox\storage.json -g bicep-eastus2-test 
