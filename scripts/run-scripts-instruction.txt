@@ -1,10 +1,37 @@
-// initiated the script
+## Install the Bicep using PowerShell script
 powershell.exe -file .\scripts\powershell\install-bicep.ps1
 
+## Formatting the file
+ALT+Shift+F
 
-// build ARM template from bicep
+## Building ARM template from bicep files
 bicep build main.bicep
+bicep build .\sandbox\storage.bicep
 
 
-// deploy .json to azure
+## Azure CLI Deploy ARM template .json to a RG "bicep-eastus2-test"
 az deployment group create -f .\sandbox\storage.json -g bicep-eastus2-test 
+
+
+## Deploy with Azure PowerShell
+bicep build ./main.bicep                            # generates main.json
+New-AzResourceGroup -Name my-rg -Location eastus    # optional - create resource group 'my-rg'
+New-AzResourceGroupDeployment -TemplateFile ./main.json -ResourceGroupName my-rg
+
+
+## Enable IIS on Win Server
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
+
+
+## Deploy with Azure CLI
+bicep build ./main.bicep                    # generates main.json
+az group create -n my-rg -l eastus          # optional - create resource group 'my-rg'
+az deployment group create -f ./main.json -g my-rg
+
+
+## Deploy to subscription level
+az deployment sub create --location eastus2 --template-file 'main.json'
+az group delete -n 'rg-name'
+
+## what-if
+az deployment sub what-if --location eastus2 --template-file 'main.json'
