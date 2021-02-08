@@ -7,6 +7,7 @@ on:
 env:
   AZURE_SUBSCRIPTION_ID: "82871f4a-6f7f-44df-a6e6-4d21f47bd2a2"   # set this to your Azure Subscription Id
   AZURE_RESOURCE_GROUP: GitHubActionExercise-rg   # set this to your target resource group
+  AZURE_REGION: eastus2
 
 jobs:
   deploy-virtual-network-template:
@@ -26,4 +27,5 @@ jobs:
           scope: subscription
           subscriptionId: ${{ env.AZURE_SUBSCRIPTION_ID }}
           resourceGroupName: ${{ env.AZURE_RESOURCE_GROUP }}
+          region: ${{ env.AZURE_REGION }}
           template: ./sandbox/main.json
