@@ -27,4 +27,4 @@ jobs:
           subscriptionId: ${{ env.AZURE_SUBSCRIPTION_ID }}
           # resourceGroupName: ${{ env.AZURE_RESOURCE_GROUP }}
           region: "eastus2"
-          template: ./path-to/sandbox/main.json
+          template: ./sandbox/main.json
