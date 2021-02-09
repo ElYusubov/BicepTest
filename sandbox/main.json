@@ -128,7 +128,7 @@
             "value": "My@ecr%634Pans%6"
           },
           "vmSize": {
-            "value": "Standard_B2ms"
+            "value": "Standard_B2s"
           }
         },
         "template": {
