@@ -1,11 +1,11 @@
-name: Deploy ARM Template
+name: Deploy Templates on Subscription level
 
 on:
   push:
     branches:
-      - main
+      - development
 env:
-  AZURE_SUBSCRIPTION_ID: "82871f4a-6f7f-44df-a6e6-4d21f47bd2a2"   # set this to your Azure Subscription Id
+  AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURESUBSCRIPTIONID }}   # set this to your Azure Subscription Id
   AZURE_RESOURCE_GROUP: GitHubActionExercise-rg   # set this to your target resource group
   AZURE_REGION: eastus2
 
