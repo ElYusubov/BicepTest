@@ -5,7 +5,7 @@ on:
     branches:
       - development
 env:
-  AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUB_CRED.subscriptionId }}   # set this to your Azure Subscription Id
+  AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURESUBSCRIPTIONID }}   # set this to your Azure Subscription Id
   AZURE_RESOURCE_GROUP: GitHubActionExercise-rg   # set this to your target resource group
   AZURE_REGION: eastus2
 
