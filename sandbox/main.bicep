@@ -36,6 +36,6 @@ module vmWinMod './vm-win.bicep' = {
     dnsLabelPrefix: concat('bicep-trexdemo-feb-', baseTime)
     location: computeRg.location
     adminPassword: 'My@ecr%634Pans%6'
-    vmSize: 'Standard_B2ms'
+    vmSize: 'Standard_B2s'
   }
 }
