@@ -52,3 +52,4 @@ scope=$(az group list --query "[?contains(name, '$resourceGroupName')].id" -o ts
 ### az ad sp create-for-rbac --name $appName --role Contributor --scopes $scope --sdk-auth
 az ad sp create-for-rbac --name $appName --role Contributor --sdk-auth
 
+## remove his text
