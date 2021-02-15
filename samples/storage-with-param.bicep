@@ -17,7 +17,7 @@ var stgName = '${namePrefix}stg01'
 resource bicepStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: stgName // computed storage name [parameters('name')]
   location: location
-  kind: 'Storage'
+  kind: 'StorageV2'
   sku: {
     name: globalRedundancy ? 'Standard_GRS' : 'Standard_LRS'
     tier: 'Standard'
