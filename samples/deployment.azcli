@@ -1,0 +1,14 @@
+# create the resource group
+set LOCATION=eastus2
+set RESOURCEGROUP=bicep-demo3
+az group create --name %RESOURCEGROUP% --location %LOCATION%
+
+
+# deploy resources from json templates
+az deployment group create --template-file ./storage.json --resource-group %RESOURCEGROUP%
+
+az deployment group create --template-file ./linux-webapp.json --resource-group %RESOURCEGROUP%
+
+
+# delete demo RGs
+az group delete --name %RESOURCEGROUP%
