@@ -3,7 +3,7 @@ name: Deploy Templates on Subscription level
 on:
   push:
     branches:
-      - development
+      - main
 env:
   AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURESUBSCRIPTIONID }}   # set this to your Azure Subscription Id
   AZURE_RESOURCE_GROUP: GitHubActionExercise-rg   # set this to your target resource group
