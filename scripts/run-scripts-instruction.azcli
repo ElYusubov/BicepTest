@@ -37,7 +37,7 @@ az group delete -n 'rg-name'
 az deployment sub what-if --location eastus2 --template-file 'main.json'
 
 
-projectName="GitHubActionExercise"
+projectName="GitHubTest"
 location="eastus2"
 resourceGroupName="${projectName}-rg"
 appName="http://${projectName}"
@@ -51,5 +51,3 @@ scope=$(az group list --query "[?contains(name, '$resourceGroupName')].id" -o ts
 # Create the service principal with contributor rights to the resource group we just created
 ### az ad sp create-for-rbac --name $appName --role Contributor --scopes $scope --sdk-auth
 az ad sp create-for-rbac --name $appName --role Contributor --sdk-auth
-
-## remove his text
