@@ -3,14 +3,14 @@ name: Deploy Templates on Subscription level
 on:
   push:
     branches:
-      - main
+      - development
 env:
   AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURESUBSCRIPTIONID }}   # set this to your Azure Subscription Id
-  AZURE_RESOURCE_GROUP: GitHubActionExercise-rg   # set this to your target resource group
+  AZURE_RESOURCE_GROUP: GitHubTest-rg   # set this to your target resource group
   AZURE_REGION: eastus2
 
 jobs:
-  deploy-virtual-network-template:
+  deploy-bicep-demo-template:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
