@@ -9,7 +9,7 @@ param baseTime string = utcNow('yyyyMMddHHmmss')
 param deploymentLocation string = 'eastus2'
 
 resource rg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
-  name: concat('bicep-trexdemo-storage-feb-', deploymentLocation)  // concat('trexdemo-storage-feb', baseTime)
+  name: concat('bicep-demo-storage-v1-', deploymentLocation)  // concat('trexdemo-storage-feb', baseTime)
   location: deploymentLocation
 }
 
@@ -24,7 +24,7 @@ module stgMod './storage-with-param.bicep' = {
 var blobEndPointOutput = stgMod.outputs.blobEndpoint
 
 resource computeRg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
-  name: concat('bicep-trexdemo-compute-feb-', deploymentLocation)  // concat('trexdemo-compute-feb', baseTime)
+  name: concat('bicep-demo-compute-v1-', deploymentLocation)  // concat('trexdemo-compute-feb', baseTime)
   location: deploymentLocation
 }
 
@@ -33,7 +33,7 @@ module vmWinMod './vm-win.bicep' = {
   scope: resourceGroup(computeRg.name)
   params: {
     adminUserName: 'trexuser'
-    dnsLabelPrefix: concat('bicep-trexdemo-feb-', baseTime)
+    dnsLabelPrefix: concat('bicep-demo-compute-v1-', baseTime)
     location: computeRg.location
     adminPassword: 'My@ecr%634Pans%6'
     vmSize: 'Standard_B2s'
