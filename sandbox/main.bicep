@@ -17,7 +17,7 @@ module stgMod './storage-with-param.bicep' = {
   name: concat('storageDeploy', baseTime) // deployment name for the storage
   scope: resourceGroup(rg.name)
   params: {
-    namePrefix: 'trexdemo'
+    namePrefix:'demostg'
   }
 }
 
