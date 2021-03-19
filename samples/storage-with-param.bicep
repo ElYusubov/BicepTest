@@ -4,9 +4,9 @@ param location string = resourceGroup().location
 
 param namePrefix string {
   allowed: [
-    'bicepdemo'
-    'demostg'
-    'newproject'
+    'linkedindemo'
+    'testing'
+    'staging's
   ]
 }
 
