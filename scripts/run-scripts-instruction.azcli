@@ -51,3 +51,9 @@ scope=$(az group list --query "[?contains(name, '$resourceGroupName')].id" -o ts
 # Create the service principal with contributor rights to the resource group we just created
 ### az ad sp create-for-rbac --name $appName --role Contributor --scopes $scope --sdk-auth
 az ad sp create-for-rbac --name $appName --role Contributor --sdk-auth
+
+#####################
+
+az group create -n mystorage-rg -l eastus
+
+az deployment group create -f .\samples\storage.bicep -g mystorage-rg  -c

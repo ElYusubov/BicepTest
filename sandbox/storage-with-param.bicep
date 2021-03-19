@@ -4,26 +4,22 @@ param location string = resourceGroup().location
 
 param namePrefix string {
   allowed: [
-    'trexdemo'
-    'demostg'
-    'tlpdemo'
+    'linkedindemo'
+    'testing'
+    'staging'
   ]
 }
 
-param baseTime string = '' // utcNow('yyyyMMddHHmmss')
 param globalRedundancy bool = false
 
-var stgName = concat(namePrefix, 'stage1' , baseTime)
-
-var standard_LRS = 'Standard_LRS' // declared variable with value
-var standard_GRS = 'Standard_GRS'
+var stgName = '${namePrefix}stg01'
 
 resource bicepStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: stgName // [parameters('name')]
+  name: stgName // computed storage name [parameters('name')]
   location: location
   kind: 'StorageV2'
   sku: {
-    name: globalRedundancy ? standard_GRS : standard_LRS
+    name: globalRedundancy ? 'Standard_GRS' : 'Standard_LRS'
     tier: 'Standard'
   }
 }
