@@ -8,13 +8,13 @@ az bicep list-versions
 # Structure of ARM JSON that Bicep transpiles into 
 az bicep build -f .\samples\empty-bicep.bicep
 
-
 # Build simple Azure storage account
 az bicep build -f .\samples\simple-storage.bicep
 
 #Try deployment of simple storage to Azure
 az login --use-device-code
-az account show --query name
+az account show --query namecls
+
 
 az group create -n bicep-starter-demo -l eastus2
 az group list -o table
@@ -28,4 +28,9 @@ az deployment group what-if -f .\samples\simple-storage.bicep -g bicep-starter-d
 az deployment group create -f .\samples\simple-storage.bicep -g bicep-starter-demo 
 az storage account list --query [].name -o table
 
+# Now, let's parameterize our storage deployment
+az deployment group what-if --name addparameters --resource-group bicep-starter-demo --template-file .\samples\parameterized-storage.bicep --parameters storageName=parametersdemostg05
+# run above script with Create
 
+# A Linux Webapp deployment 
+az deployment group what-if --name webapplinuxdeployment --resource-group bicep-starter-demo --template-file .\samples\webapplinux.bicep --parameters webAppName=global-azure21
