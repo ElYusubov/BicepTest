@@ -7,7 +7,7 @@ az group create --name %RESOURCEGROUP% --location %LOCATION%
 
 
 # deploy resources from json templates
-az deployment group create --template-file ./storage-with-param.json --resource-group %RESOURCEGROUP%
+az deployment group what-if --template-file ./bicepdemo --resource-group %RESOURCEGROUP%
 
 az deployment group what-if --template-file ./linux-webapp.json --resource-group %RESOURCEGROUP%
 
@@ -17,10 +17,12 @@ az group delete --name %RESOURCEGROUP%
 
 
 # Steps to create RG in Azure Demo environmet
-az group create --name mystorage-resources --location eastus2
+az group create --name mystorage-resources --location eastus
 az group list --outpu table
 
+# az provider register --namespace 'Microsoft.PolicyInsights'
+
 # storage name restrictions 3-24 chars long, lowercase letters and numers only
-az storage account create --name myredundantstg0218 --location eastus2 --resource-group mystorage-resources --kind StorageV2 --sku Standard_GRS 
+az storage account create --name mynewstg0218 --location eastus --resource-group mystorage-resources --kind StorageV2 --sku Standard_GRS 
 az storage account list --output table
 
