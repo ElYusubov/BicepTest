@@ -34,3 +34,10 @@ az deployment group what-if --name addparameters --resource-group bicep-starter-
 
 # A Linux Webapp deployment 
 az deployment group what-if --name webapplinuxdeployment --resource-group bicep-starter-demo --template-file .\samples\webapplinux.bicep --parameters webAppName=global-azure21
+
+
+# MULTI-DEPLOY into SUBSCRIPTION
+az deployment sub what-if --location eastus2 --template-file 'multi-deployment.bicep'
+
+# Policy assignment - location restrictions
+az deployment sub what-if --location eastus2 --template-file .\samples\custom-locations.bicep
