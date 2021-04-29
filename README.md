@@ -7,6 +7,7 @@ Focus is on performing simple and complex IaC provisioning though authoring ARM 
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
 [![CI](https://github.com/ElYusubov/BicepTest/actions/workflows/samplePipline.yml/badge.svg)](https://github.com/ElYusubov/BicepTest/actions/workflows/samplePipline.yml)
+[![Build and Deploy Bicep](https://github.com/ElYusubov/BicepTest/actions/workflows/deployBicep.yaml/badge.svg)](https://github.com/ElYusubov/BicepTest/actions/workflows/deployBicep.yaml)
 
 To get running the samples do the following in Vs Code env:
 - Fork the branch (aka, starting from obvious ;)
