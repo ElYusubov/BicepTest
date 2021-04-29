@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Bicep Build-1
-        uses: aliencube/bicep-build-actions@v0.1
+        uses: aliencube/bicep-build-actions@v0.3
         with:
           files: sandbox/main.bicep
 
