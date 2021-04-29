@@ -2,13 +2,13 @@
 
 param location string = resourceGroup().location
 
-param namePrefix string {
-  allowed: [
-    'linkedindemo'
-    'testing'
-    'staging'
-  ]
-}
+
+@allowed([
+  'linkedindemo'
+  'testing'
+  'staging'
+])
+param namePrefix string = 'testing'
 
 param globalRedundancy bool = false
 

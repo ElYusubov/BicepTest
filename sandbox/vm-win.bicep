@@ -1,47 +1,33 @@
 param adminUserName string
-param adminPassword string {
-  secure: true
-}
+param adminPassword string 
+
 param dnsLabelPrefix string
-param windowsOSVersion string {
-  default: '2016-Datacenter'
-  allowed: [
-    '2008-R2-SP1'
+
+@allowed([
+  '2008-R2-SP1'
     '2012-Datacenter'
     '2012-R2-Datacenter'
     '2016-Nano-Server'
     '2016-Datacenter-with-Containers'
     '2016-Datacenter'
     '2019-Datacenter'
-  ]
-  metadata: {
-    'description': 'The Windows version for the VM. This will pick a fully patched image of this given Windows version.'
-  }
-}
-param vmSize string {
-  default: 'Standard_B2s'
-  allowed: [
-    'Basic_A2'
-    'Basic_A3'
-    'Standard_A1_v2'
-    'Standard_A2_v2'
-    'Standard_B2ms'
-    'Standard_B2s'
-    'Standard_D1_v2'
-    'Standard_D2_v2'
-    'Standard_D2_v3'
-  ]
-  metadata: {
-    description: 'Size of the virtual machine. This will pick up smaller VMs with 2 Cors and 8G RAM max.'
-  }
-}
+])
+param windowsOSVersion string = '2016-Datacenter'
 
-param location string {
-  default: resourceGroup().location
-  metadata: {
-    description: 'location for all resources'
-  }
-}
+@allowed([
+  'Basic_A2'
+  'Basic_A3'
+  'Standard_A1_v2'
+  'Standard_A2_v2'
+  'Standard_B2ms'
+  'Standard_B2s'
+  'Standard_D1_v2'
+  'Standard_D2_v2'
+  'Standard_D2_v3'
+])
+param vmSize string = 'Standard_B2s'
+
+param location string = resourceGroup().location
 
 var storageAccountName = concat(uniqueString(resourceGroup().id), 'sawinvm')
 var nicName = 'myVMNic'
