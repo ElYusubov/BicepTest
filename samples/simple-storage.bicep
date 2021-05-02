@@ -1,7 +1,7 @@
 // simple-storage.bicep
 
 resource simpleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: 'globalazuredemostg21'
+  name: 'cllm2021demostg'
   location: 'eastus2'
   kind: 'StorageV2'
   sku: {

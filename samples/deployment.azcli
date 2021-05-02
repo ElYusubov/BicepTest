@@ -1,5 +1,7 @@
 ### deployment.azcli
 
+az login --use-device-code
+
 # create the resource group
 set LOCATION=eastus2
 set RESOURCEGROUP=bicep-demo3
@@ -14,6 +16,12 @@ az deployment group what-if --template-file ./linux-webapp.json --resource-group
 
 # delete demo RGs
 az group delete --name %RESOURCEGROUP%
+
+##########################################################
+ az group list -o table
+ 
+ az deployment sub what-if --location eastus2 --template-file .\samples\resource-group.bicep
+
 
 
 # Steps to create RG in Azure Demo environmet
