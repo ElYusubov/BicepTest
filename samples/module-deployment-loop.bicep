@@ -2,7 +2,7 @@
 // module-deployment-loop.bicep
 
 targetScope = 'subscription'
-param azureRegion string = 'eastus2'   // 'westeurope'
+param azureRegion string = 'eastus2' // 'westeurope'
 
 param containerNames array = [
   'dogs02'

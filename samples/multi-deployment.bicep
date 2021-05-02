@@ -3,7 +3,7 @@
 targetScope = 'subscription'
 
 param baseTime string = utcNow('yyyyMMddHHmmss')
-param azureRegion string = 'eastus2'    // 'westeurope'
+param azureRegion string = 'eastus2'
 
 resource rg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
   name: concat('bicep-azglobal-storage-v1-', azureRegion)
@@ -14,7 +14,7 @@ var storageDeployment = 'storageDeployment'
 var uniqueStorageDeployment = '${storageDeployment}${uniqueString(rg.id)}'
 
 module newStorage './parameterized-storage.bicep' = {
-  name: uniqueStorageDeployment // concat('storageDeployment', baseTime) // deployment name for the storage
+  name: uniqueStorageDeployment // deployment name for the storage
   scope: resourceGroup(rg.name)
   params: {
     azureRegion: azureRegion

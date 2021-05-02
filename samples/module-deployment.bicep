@@ -3,7 +3,7 @@
 
 targetScope = 'subscription'
 
-param azureRegion string = 'eastus2'   // 'westeurope'
+param azureRegion string = 'eastus2'
 
 resource rg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
   name: concat('bicep-azglobal-storage-v1-', azureRegion)

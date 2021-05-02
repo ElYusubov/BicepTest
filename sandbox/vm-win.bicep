@@ -1,16 +1,16 @@
 param adminUserName string
-param adminPassword string 
+param adminPassword string
 
 param dnsLabelPrefix string
 
 @allowed([
   '2008-R2-SP1'
-    '2012-Datacenter'
-    '2012-R2-Datacenter'
-    '2016-Nano-Server'
-    '2016-Datacenter-with-Containers'
-    '2016-Datacenter'
-    '2019-Datacenter'
+  '2012-Datacenter'
+  '2012-R2-Datacenter'
+  '2016-Nano-Server'
+  '2016-Datacenter-with-Containers'
+  '2016-Datacenter'
+  '2019-Datacenter'
 ])
 param windowsOSVersion string = '2016-Datacenter'
 
