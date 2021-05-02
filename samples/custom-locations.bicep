@@ -6,6 +6,7 @@ param listOfAllowedLocations array = [
   'eastus'
   'westus'
   'eastus2'
+  'westus2'
 ]
 
 @allowed([

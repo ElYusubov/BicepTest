@@ -1,5 +1,4 @@
 param adminUserName string
-param adminPassword string
 
 param dnsLabelPrefix string
 
@@ -28,6 +27,7 @@ param windowsOSVersion string = '2016-Datacenter'
 param vmSize string = 'Standard_B2s'
 
 param location string = resourceGroup().location
+param adminPassword string = 'My@ecr%634Pans%6'
 
 var storageAccountName = concat(uniqueString(resourceGroup().id), 'sawinvm')
 var nicName = 'myVMNic'
