@@ -1,5 +1,6 @@
 // Deploy storage accounts in a Loop
 // module-deployment-loop.bicep
+// alfran@microsoft.com - Bicep Development Lead PM
 
 targetScope = 'subscription'
 param azureRegion string = 'eastus2' // 'westeurope'
