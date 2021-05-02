@@ -51,12 +51,3 @@ module linuxApp 'linux-webapp.bicep' = {
     webAppName: 'cllm21'
   }
 }
-
-
-// deploy location Policy on Subscription
-module customRegionPolicy '../samples/custom-locations.bicep' = {
-  name: 'locationRestrictionDeployment'
-  params: {
-    policyEffect: 'Deny'
-  }
-}
