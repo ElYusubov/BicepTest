@@ -18,21 +18,22 @@ az group create -n bicep-starter-demo -l eastus2
 az group list -o table
 
 # Preflight-check 
-az deployment group what-if -f .\samples\simple-storage.bicep -g bicep-starter-demo
+az deployment group what-if -f .\sandbox\storage.bicep -g bicep-starter-demo
 
 # Actual deployment to Resource-Group
-az deployment group create -f .\samples\simple-storage.bicep -g bicep-starter-demo 
+az deployment group create -f .\sandbox\storage.bicep -g bicep-starter-demo -c
 az storage account list --query [].name -o table
 
 # Deploy Azure storage with Bicep template + parameter
-az deployment group what-if --name addparameters --resource-group bicep-starter-demo --template-file .\samples\parameterized-storage.bicep --parameters storageName=parametersdemostg05
-# run above script with Create
+az deployment group create --name add-storage-w-parameters --resource-group bicep-starter-demo --template-file .\sandbox\storage-with-param.bicep --parameters storageName=cllm21demostg02 -c
+
+# Deploy Policy assignment into Subscription - location restrictions
+az deployment sub create --location eastus2 --template-file .\samples\custom-locations.bicep --parameters policyEffect=Audit -c
+
+
 
 # Sample Linux Webapp deployment + with parameter
-az deployment group what-if --name webapplinuxdeployment --resource-group bicep-starter-demo --template-file .\samples\webapplinux.bicep --parameters webAppName=global-azure21
+az deployment group what-if --name webapplinuxdeployment --resource-group bicep-starter-demo --template-file .\samples\webapplinux.bicep --parameters webAppName=global-azure21 -c
 
 # Deployment sample into SUBSCRIPTION
 az deployment sub what-if --location eastus2 --template-file 'multi-deployment.bicep'
-
-# Deploy Policy assignment into Subscription - location restrictions
-az deployment sub what-if --location eastus2 --template-file .\samples\custom-locations.bicep
