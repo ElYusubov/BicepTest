@@ -19,7 +19,7 @@ resource simpleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
   kind: 'StorageV2'
   sku: {
     name: storageSKU
-    tier:'Standard'
+    tier: 'Standard'
   }
   tags: {
     Environment: 'Demo'

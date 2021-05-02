@@ -2,7 +2,6 @@
 
 param location string = resourceGroup().location
 
-
 @allowed([
   'linkedindemo'
   'testing'

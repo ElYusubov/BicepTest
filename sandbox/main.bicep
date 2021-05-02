@@ -7,7 +7,7 @@ param baseTime string = utcNow('yyyyMMddHHmmss')
 param deploymentLocation string = 'eastus2'
 
 resource rg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
-  name: concat('bicep-demo-storage-cllm-', deploymentLocation)  // concat('trexdemo-storage-feb', baseTime)
+  name: concat('bicep-demo-storage-cllm-', deploymentLocation)
   location: deploymentLocation
 }
 
@@ -22,7 +22,7 @@ module stgMod './storage-with-param.bicep' = {
 var blobEndPointOutput = stgMod.outputs.blobEndpoint
 
 resource computeRg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
-  name: concat('bicep-demo-compute-cllm-', deploymentLocation)  // dynamic deployment name for the storage
+  name: concat('bicep-demo-compute-cllm-', deploymentLocation) // dynamic deployment name for the storage
   location: deploymentLocation
 }
 
