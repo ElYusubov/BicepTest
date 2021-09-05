@@ -7,12 +7,12 @@ param deploymentLocation string = 'eastus2'
 
 // deploy storage resources
 resource rg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
-  name: concat('bicep-demo-storage-cllm-', deploymentLocation)
+  name: 'bicep-demo-storage-cllm-${deploymentLocation}'
   location: deploymentLocation
 }
 
 module stgMod './storage-with-param.bicep' = {
-  name: concat('storageDeploy-', baseTime) // dynamic deployment name for the storage
+  name: 'storageDeploy-${baseTime}' // dynamic deployment name for the storage
   scope: resourceGroup(rg.name)
   params: {
     namePrefix: 'staging'
