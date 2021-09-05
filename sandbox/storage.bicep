@@ -11,9 +11,8 @@ resource bicepStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
   location: azureRegion
   kind: 'StorageV2'
   sku: {
-    tier: 'Standard'
-    name: 'Premium_LRS'
-  }  
+    name: 'Standard_LRS'
+  }
 }
 
 output storageId string = bicepStorage.id
