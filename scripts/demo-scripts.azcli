@@ -1,4 +1,8 @@
-# Bicep version & Help
+# Azure Login
+az login --use-device-code
+az account show --query name
+
+# Check the Bicep versions
 az bicep --help
 az bicep version
 az bicep list-versions
@@ -34,5 +38,10 @@ az deployment group what-if --name webapplinuxdeployment --resource-group bicep-
 # Deployment sample into SUBSCRIPTION
 az deployment sub what-if --location eastus2 --template-file 'multi-deployment.bicep'
 
-# Deploy Policy assignment into Subscription - location restrictions
+# Policy assignment - location restrictions
 az deployment sub what-if --location eastus2 --template-file .\samples\custom-locations.bicep
+
+# Helpful troubleshooting references
+# https://docs.microsoft.com/en-us/answers/questions/340510/arm-templates-storageaccountsfileservices-error-34.html
+# https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/file
+# https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/best-practices
