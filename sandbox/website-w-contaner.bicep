@@ -1,13 +1,13 @@
-param name string = 'trexdemosite001'
+param name string = 'marathonerdemo1124'
 param location string = resourceGroup().location
 
-param acrName string = 'trexdemoacr01'
-param dockerUsername string = 'adminUser'
+param acrName string = 'marathonerdemoacr01'
+param dockerUsername string = 'azureadmin'
 param dockerImageAndTag string = 'app/frontend:latest'
 param acrResourceGroup string = resourceGroup().name
 param acrSubscription string = subscription().subscriptionId
 
-// external ACR info
+// external ACR info reference
 var containerRegistryId = resourceId(acrSubscription, acrResourceGroup, 'Microsoft.ContainerRegistry/registries', acrName)
 var acrApiVersion = '2019-05-01'
 
@@ -60,4 +60,4 @@ resource farm 'microsoft.web/serverFarms@2020-06-01' = {
 }
 
 output publicUrl string = site.properties.defaultHostName
-output ftpUser string = any(site.properties).ftpUsername // TODO: workaround for missing property definition
+output ftpUser string = any(site.properties).ftpUsername

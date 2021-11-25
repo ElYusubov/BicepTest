@@ -1,4 +1,8 @@
-# Bicep version & Help
+# Azure Login
+az login --use-device-code
+az account show --query name
+
+# Check the Bicep versions
 az bicep --help
 az bicep version
 az bicep list-versions
