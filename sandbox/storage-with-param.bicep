@@ -3,18 +3,21 @@
 param location string = resourceGroup().location
 
 @allowed([
-  'linkedindemo'
+  'demo'
   'testing'
   'staging'
 ])
-param namePrefix string = 'testing'
-
+param namePrefix string = 'demo'
 param globalRedundancy bool = false
 
-var stgName = '${namePrefix}stg01'
+@minLength(3)
+@maxLength(24)
+param storageName string = 'democllm21v3'
+
+var uniqueStorageName = '${namePrefix}${storageName}'
 
 resource bicepStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: stgName // computed storage name [parameters('name')]
+  name: storageName
   location: location
   kind: 'StorageV2'
   sku: {

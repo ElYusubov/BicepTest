@@ -1,4 +1,4 @@
-// main.bicep
+// main.bicep - for demo
 
 targetScope = 'subscription'
 

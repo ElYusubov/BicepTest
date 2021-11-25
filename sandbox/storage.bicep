@@ -1,10 +1,19 @@
 // storage.bicep
 
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: 'mysamplestg729' // must be globally unique, confirm to storage naming conventions
-  location: 'eastus2'
-  kind: 'StorageV2' // Storage
+param azureRegion string = resourceGroup().location
+
+@minLength(3)
+@maxLength(24)
+param storageName string = 'cllm2021stg2'
+
+resource bicepStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  name: storageName
+  location: azureRegion
+  kind: 'StorageV2'
   sku: {
     name: 'Standard_LRS'
   }
 }
+
+output storageId string = bicepStorage.id
+output blobEndpoint string = bicepStorage.properties.primaryEndpoints.blob
