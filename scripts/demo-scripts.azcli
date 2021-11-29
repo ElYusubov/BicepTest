@@ -34,8 +34,6 @@ az deployment group create --name add-storage-w-parameters --resource-group bice
 # Deploy Policy assignment into Subscription - location restrictions
 az deployment sub create --location eastus2 --template-file .\samples\custom-locations.bicep --parameters policyEffect=Audit -c
 
-
-
 # Sample Linux Webapp deployment + with parameter
 az deployment group what-if --name webapplinuxdeployment --resource-group bicep-starter-demo --template-file .\samples\webapplinux.bicep --parameters webAppName=global-azure21 -c
 
