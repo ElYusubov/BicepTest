@@ -6,7 +6,7 @@ param baseTime string = utcNow('yyyyMMddHHmmss')
 param azureRegion string = 'eastus2'
 
 resource rg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
-  name: concat('bicep-azglobal-storage-v1-', azureRegion)
+  name: 'bicep-azglobal-storage-v1-${azureRegion}'
   location: azureRegion
 }
 
@@ -26,7 +26,7 @@ module newStorage './parameterized-storage.bicep' = {
 output deployedStorageName string = newStorage.name
 
 resource computeRg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
-  name: concat('bicep-azglobal-compute-v1-', azureRegion)
+  name: 'bicep-azglobal-compute-v1-${azureRegion}'
   location: azureRegion
 }
 
@@ -44,7 +44,7 @@ module vmWinMod './linux-vm.bicep' = {
 }
 
 resource databaseRg 'Microsoft.Resources/resourceGroups@2020-06-01' = {
-  name: concat('bicep-azglobal-database-v1-', azureRegion)
+  name: 'bicep-azglobal-database-v1-${azureRegion}'
   location: azureRegion
 }
 
