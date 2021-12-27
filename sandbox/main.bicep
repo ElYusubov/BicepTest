@@ -1,4 +1,4 @@
-// main.bicep - for demo
+// main.bicep - test run
 
 targetScope = 'subscription'
 
